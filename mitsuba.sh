@@ -5,7 +5,7 @@ echo "${1} - Début du traitement" > log.txt
 while pgrep mitsuba>/dev/null
 	do
 		date >> log.txt
-		if  [ $i -gt 1 ]
+		if  [ $i -gt 0 ]
 			then killall -HUP mitsuba
 		fi
 		sleep 5
