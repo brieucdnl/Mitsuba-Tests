@@ -1,6 +1,6 @@
 #!/bin/bash
 mitsuba "${1}" &
-echo "${1} - Début du traitement" > log.txt
+echo "${1} - Starting Process" > log.txt
 ((i = 0))
 while pgrep mitsuba>/dev/null
 	do
