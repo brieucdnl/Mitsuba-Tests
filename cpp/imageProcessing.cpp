@@ -84,7 +84,7 @@ double getMSSIM(const Mat& img1, const Mat& img2)
 
 /*
  * Main function
- * @param: string(Path for the images), int(Nb images), string(Name for output)
+ * @param: string(Path for the images), string (Path for reference image), int(Nb images), string(Name for output)
  * @return: NULL
  */
 int main(int argc, char *argv[])
@@ -92,8 +92,8 @@ int main(int argc, char *argv[])
 	Mat imgRef, imgComp;
 	stringstream path_o, path_img;
 	// Defining paths (input and output)
-	path_o << "/home/bibi/Esir/SIA/output/" << argv[3] << ".csv";
-	path_img << argv[4];
+	path_o << "/home/bibi/Esir/SIA/output/" << argv[4] << ".csv";
+	path_img << argv[2];
 	// Making a matrix with the img (for processing)
 	imgRef = imread((path_img.str()).c_str(), CV_LOAD_IMAGE_UNCHANGED);
 	// Opening a .CSV File
@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
 	// Defining titles
 	excelFile <<  "Image, PSNR, SSIM" << endl;
 	excelFile << flush;
-	int nbImg = atoi(argv[2]);
+	int nbImg = atoi(argv[3]);
 	int i = 1;
 	while (i <= nbImg)
 	{
